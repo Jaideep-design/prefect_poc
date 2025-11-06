@@ -1,0 +1,40 @@
+# prefect.yaml
+name: prefect_poc
+prefect-version: 3.4.25
+
+# build section is optional; leave as null
+build: null
+
+# push section is optional; leave as null
+push: null
+
+# pull section removed absolute path; Prefect will bundle project folder automatically
+pull: null
+
+deployments:
+- name: solax-poc
+  version: null
+  tags: []
+  concurrency_limit: null
+  description: Solax Push Script PoC
+  entrypoint: flows/prefect_wrapper.py:solax_flow
+  parameters: {}
+  work_pool:
+    name: Default_poc
+    work_queue_name: default
+    job_variables:
+      pip_packages:
+        - "prefect>=3.0.0"
+        - pandas
+        - numpy
+        - pymongo
+        - gspread
+        - pytz
+      image: prefecthq/prefect:3-python3.11
+      env: {}
+      timeout: 86400
+  schedules:
+  - cron: '*/10 * * * *'
+    timezone: UTC
+    day_or: true
+    active: true

@@ -1,0 +1,6 @@
+prefect>=3.0.0
+pandas
+numpy
+pymongo
+gspread
+pytz
