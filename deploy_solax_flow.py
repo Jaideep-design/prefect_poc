@@ -9,7 +9,7 @@ from prefect_wrapper import solax_flow
 
 if __name__ == "__main__":
     # Load your GitHub storage block
-    github_block = GitHubRepository.load("solax-code-storage")  # your block name
+    github_block = GitHubRepository.load("ecozenpoc")  # your block name
 
     # Deploy the flow
     solax_flow.deploy(
