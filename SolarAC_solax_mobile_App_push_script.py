@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 
 def getCollection(collection_name):
     import os
-    username = os.getenv("ecotron_analytics")
-    password = os.getenv("ecotron_analytics123")
+    username = "ecotron_analytics"
+    password = "ecotron_analytics123"
 
     if not username or not password:
         raise ValueError("MongoDB credentials not found in environment variables. Please set MONGO_USER and MONGO_PASS.")
@@ -428,6 +428,7 @@ df_log = pd.DataFrame([{
 }])
 
 push_logdf_to_mongodb(df_log, collectionname = "SolarACStats")
+
 
 
 
